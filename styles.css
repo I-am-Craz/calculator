@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Droid Sans Mono", monospace;
+    font-size: 1em;
+}
+:root{
+    --main-bg-color: #202130;
+    --text-color:  #dbdbea;
+    --operation-text-color: #000;
+    --main-light-color: #fdfdfd;
+    --body-bg-color:  #403a4c;
+    --body-light-bg-color:  #7aceea;
+    --light-text-color: #064760;;
+}
+
+#body{
+    background-color: var(--body-bg-color);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: background-color cubic-bezier(0.19, 1, 0.22, 1) 3s;
+}
+#body.light{
+    background-color: var(--body-light-bg-color);
+   }
+.container{
+    padding: 5%;
+    position: relative;
+}
+#wrapper{
+    position: absolute;
+    width: 113%;
+    height: 220%;
+    background-color:  var(--main-bg-color);
+    padding: 6%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-gap: 4%;
+    left: 15%;
+}
+#wrapper.light, .btn.light{
+    background-color: var(--main-light-color);
+}
+
+#display{
+    background-color: var(--main-bg-color);
+    text-align: left;
+    grid-column: 1/-1;
+    color: var(--text-color);
+    font-weight: bold;
+    border: none;
+}
+#display:focus{
+    outline: none;
+    border: none;
+}
+#display.light{
+    color: var(--light-text-color);
+    background-color: var(--main-light-color);
+}
+.btn{
+    width: 90%;
+    height: 90%;
+    border: none;
+    border-radius: 15%;
+    background-color: var(--main-bg-color);
+    box-shadow: -3px -3px 4px #33394a, 3px 3px 5px #151516;
+}
+.btn:hover{
+    background-color: #1e1f29;
+}
+.btn:focus{
+    outline: none;
+    background-color: #13141a;
+}
+.btn.light{
+    box-shadow: -3px -3px 4px #aef2fc, 3px 3px 5px #b0f1f1;
+}
+.btn.light:hover{
+   background-color: #b9e4f3;
+}
+.btn:focus.light{
+    background-color: #acecff;
+}
+.num{
+    color: var(--text-color);
+}
+.num.light{
+    color: var(--light-text-color);
+}
+.operation{
+    color: #56328f;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#toggle{
+    width: 60px;
+    height: 30px;
+    background-color: #6b6868;
+    position: relative;
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15%;
+    margin-left: -50%;
+
+}
+#circle{
+    height: 30px;
+    width: 30px;
+    right: unset;
+    content: "";
+    background-color: #ffff;
+    border-radius: 50%;
+    position: absolute;
+    transition: right ease 2s;
+}
+#toggle.active{
+    background-color: #bcbcbc;
+    justify-content: flex-end;
+}
+@media screen and (min-height: 900px){
+    .container{
+        margin-top: 40%;
+        width: 20%;
+    }
+    #wrapper{
+        width: 75%;
+    }
+    #toggle{
+        margin-left: 0;
+    }
+}
